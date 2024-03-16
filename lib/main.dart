@@ -1,4 +1,6 @@
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
+import 'package:amazon_clone/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
+      onGenerateRoute: ((settings) => generateRoute(settings)),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Hello'),
@@ -35,7 +38,9 @@ class MyApp extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AuthScreen.routeName);
+              },
               child: const Text("click"), // Add parentheses here
             ),
           ],
