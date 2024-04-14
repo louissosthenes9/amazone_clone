@@ -13,22 +13,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Amazon clone',
+      title: 'DukaOnline',
       theme: ThemeData(
+        colorScheme: const ColorScheme.light(
+          primary: Color.fromRGBO(255, 153, 0, 1),
+        ),
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
-        ),
-        colorScheme: const ColorScheme.light(
-          primary: GlobalVariables.secondaryColor,
+          backgroundColor: Colors.orange, // Set app bar background color here
         ),
         useMaterial3: true,
       ),
       onGenerateRoute: ((settings) => generateRoute(settings)),
       home: Scaffold(
+
         appBar: AppBar(
-          title: const Text('Hello'),
+          title: const Text('Duka online'),
+          backgroundColor: Colors.orange,
         ),
         body: Column(
           children: [
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, AuthScreen.routeName);
+                Navigator.of(context).pushNamed(AuthScreen.routeName);
               },
               child: const Text("click"), // Add parentheses here
             ),
