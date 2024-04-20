@@ -1,54 +1,65 @@
-import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
-import 'package:amazon_clone/router.dart';
 import 'package:flutter/material.dart';
+import 'package:amazon_clone/router.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'DukaOnline',
+      onGenerateTitle: (context) => "Mangi Online",
+      initialRoute: RouteGenerator.homePage,
+      onGenerateRoute: RouteGenerator.generateRoute,
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: const ColorScheme.light(
-          primary: Color.fromRGBO(255, 153, 0, 1),
-        ),
-        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-        appBarTheme: const AppBarTheme(
-          elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
-          backgroundColor: Colors.orange, // Set app bar background color here
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pinkAccent),
         useMaterial3: true,
       ),
-      onGenerateRoute: ((settings) => generateRoute(settings)),
-      home: Scaffold(
+      home: const HomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
 
-        appBar: AppBar(
-          title: const Text('Duka online'),
-          backgroundColor: Colors.orange,
-        ),
-        body: Column(
-          children: [
-            const Center(
-              child: Text(
-                'Flutter Demo Home Page',
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(AuthScreen.routeName);
-              },
-              child: const Text("click"), // Add parentheses here
-            ),
-          ],
+class HomePage extends StatefulWidget {
+  const HomePage({super.key, required this.title});
+  final String title;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 20),
+            child: Icon(Icons.info),
+          ),
+        ],
+
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: const Text(
+          "Mobile handle",
+          style: TextStyle(color: Colors.white),
         ),
       ),
+      drawer: const Drawer(),
+      body: Center(
+          child: ElevatedButton(
+            child: Text("Go to the second page"),
+            onPressed: () =>
+                Navigator.of(context)?.pushNamed(RouteGenerator.authScreen),
+          )),
     );
   }
 }
