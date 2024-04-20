@@ -1,3 +1,4 @@
+import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:amazon_clone/router.dart';
 
@@ -15,9 +16,14 @@ class MyApp extends StatelessWidget {
       initialRoute: RouteGenerator.homePage,
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Duka online ',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.pinkAccent),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          iconTheme: IconThemeData(color:Colors.black )
+        ),
+        scaffoldBackgroundColor: GlobalVariables.backgroundColor,
+        colorScheme: ColorScheme.fromSeed(seedColor: GlobalVariables.secondaryColor),
         useMaterial3: true,
       ),
       home: const HomePage(title: 'Flutter Demo Home Page'),
