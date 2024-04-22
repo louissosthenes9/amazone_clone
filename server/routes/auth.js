@@ -1,11 +1,11 @@
 const express = require("express")
 
-const authRouter =express.Router()
-authRouter.get('/users',(re,res)=>{
-
+const authRouter = express.Router()
+authRouter.get('/user',(req,res)=>{
+  res.json({"name":"Louis"})
 })
 
-authRouter.post('/api/signup',(re,res)=>{
+authRouter.post('/api/signup',(req,res)=>{
     const {name,email,password}= req.body;
 })
 
