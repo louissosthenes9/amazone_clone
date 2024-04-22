@@ -118,7 +118,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   color: GlobalVariables.backgroundColor,
                   padding:const EdgeInsets.all(8),
                   child: Form(
-                    key:_signUpFormKey,
+                    key:_signInFormKey,
                     child:Column(
                         children: [
                           CustomTextField(
