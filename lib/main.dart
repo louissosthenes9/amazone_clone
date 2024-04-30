@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      onGenerateTitle: (context) => "Mangi Online",
+      onGenerateTitle: (context) => "Duka Online",
       initialRoute: RouteGenerator.homePage,
       onGenerateRoute: RouteGenerator.generateRoute,
       debugShowCheckedModeBanner: false,
@@ -55,14 +55,14 @@ class _HomePageState extends State<HomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text(
-          "Mobile handle",
+          "Duka online",
           style: TextStyle(color: Colors.white),
         ),
       ),
       drawer: const Drawer(),
       body: Center(
           child: ElevatedButton(
-            child: Text("Go to the second page"),
+            child: Text("Go to signin page"),
             onPressed: () =>
                 Navigator.of(context)?.pushNamed(RouteGenerator.authScreen),
           )),
