@@ -19,11 +19,10 @@ class MyApp extends StatelessWidget {
       title: 'Duka online ',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          elevation: 0,
-          iconTheme: IconThemeData(color:Colors.black )
-        ),
+            elevation: 0, iconTheme: IconThemeData(color: Colors.black)),
         scaffoldBackgroundColor: GlobalVariables.backgroundColor,
-        colorScheme: ColorScheme.fromSeed(seedColor: GlobalVariables.secondaryColor),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: GlobalVariables.secondaryColor),
         useMaterial3: true,
       ),
       home: const HomePage(title: 'Flutter Demo Home Page'),
@@ -62,10 +61,10 @@ class _HomePageState extends State<HomePage> {
       drawer: const Drawer(),
       body: Center(
           child: ElevatedButton(
-            child: Text("Go to signin page"),
-            onPressed: () =>
-                Navigator.of(context)?.pushNamed(RouteGenerator.authScreen),
-          )),
+        child: const Text("Go to signin page"),
+        onPressed: () =>
+            Navigator.of(context)?.pushNamed(RouteGenerator.authScreen),
+      )),
     );
   }
 }
