@@ -18,9 +18,21 @@ class User {
       required this.type,
       required this.token});
 
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'password': password,
+      'address': address,
+      'type': type,
+      'token': token,
+    };
+  }
+
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-        id: map['id'] ?? '',
+        id: map['_id'] ?? '',
         name: map['name'] ?? '',
         email: map['email'] ?? '',
         password: map['password'] ?? '',
@@ -29,7 +41,7 @@ class User {
         token: map['token'] ?? '');
   }
 
-  String toJson() => json.encode(User);
+  String toJson() => json.encode(toMap());
 
   factory User.fromJson(String source) => User.fromMap(json.decode(source));
 }
