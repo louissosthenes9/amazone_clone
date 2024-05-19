@@ -1,6 +1,7 @@
-const express = require("express")
-const User = require('../models/User')
-const authRouter = express.Router()
+import { Router } from "express";
+import User from '../models/User.js';
+const authRouter = Router()
+
 authRouter.post('/api/signup',async (req,res)=>{
     const {name,email,password}= req.body;
    try{
@@ -27,4 +28,4 @@ authRouter.post('/api/signup',async (req,res)=>{
 
 })
 
-module.exports = {authRouter,};
+export default authRouter;
