@@ -1,15 +1,13 @@
-const express = require('express')
-const mongoose =require("mongoose")
-mongoose.set('strictQuery', false);
-const path = require('path')
-const { authRouter } = require('./routes/auth')
+import express, { json } from 'express';
+import { connect } from "mongoose";
+import  authRouter  from './routes/auth.js';
 
 const app = express()
-app.use(express.json())
+app.use(json())
 
 const PORT = 3000;
 
-mongoose.connect("mongodb://localhost:27017/")
+connect("mongodb://localhost:27017/dukaOnline")
   .then(() => {
     console.log("successfully connected to database");
   })
